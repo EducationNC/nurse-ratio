@@ -4,15 +4,31 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #282828;
 }
+h1{
+    font-size:1.3em;
+}
 .container{
     display:flex;
+    height:500px;
+    overflow-y:scroll;
+    width:80%!important;
+    margin-left:10%!important;
+    margin-right:10%!important;
+    padding-top: 30px;
 }
 .wrapper {
   width: 80%;
   max-width: 960px;
-  height: 5600px;
+  height: 3000px;
   /* margin: auto; */
   position: relative;
+}
+.bar-inner-label{
+    position: absolute;
+    left: 22%;
+    z-index: 90000000;
+    top: 6px;
+    font-weight: 700;
 }
 
 .lines {
@@ -89,7 +105,7 @@ body {
 
 .chart__bar {
     height: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     background: #3cd3ad;
     opacity: 0;
     animation: 1s anim-lightspeed-in ease forwards;
@@ -148,19 +164,32 @@ body {
   line-height: 30px;
   display:block;
   height:30px;
-  margin-bottom:10px;
-  font-size:.75em;
+  margin-bottom:5px;
+  font-size:.9em;
   overflow-wrap:break-word;
+  font-weight:600;
 }
 
-@media screen and (max-width:490px){
+.center-wrap{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+@media screen and (max-width:720px){
     .chart__label{
         font-size:.6em;
     }
+}
+@media screen and (max-width:490px){
+
     .chart__bar, .chart__label{
         height: 15px;
     margin-bottom: 5px;
     line-height:initial;
+    
+    }
+    .bar-inner-label{
+        display:none;
     }
 }
 

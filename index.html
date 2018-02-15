@@ -2,76 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width" />
+
     <title>Document</title>
     <link rel="stylesheet" href="reset.css" type="text/css">
     <link rel="stylesheet" href="main.css" type="text/css">
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <div class="skills">
-        <ul class="lines">
-          <li class="line l--0">
-            <span class="line__label title">
-              Skill level:
-            </span>
-          </li>
-          <li class="line l--25">
-            <span class="line__label">
-              The basics
-            </span>
-          </li>
-          <li class="line l--50">
-            <span class="line__label">
-              Advanced
-            </span>
-          </li>
-          <li class="line l--75">
-            <span class="line__label">
-              Seasoned
-            </span>
-          </li>
-          <li class="line l--100">
-            <span class="line__label">
-              Expert
-            </span>
-          </li>
-        </ul>
-        
-        <div class="charts">
-          <div class="chart chart--dev">
-            <span class="chart__title">Development</span>
-            <ul class="chart--horiz">
-                    <span class="chart__label">
-                            HTML5
-                          </span>
-              <li class="chart__bar" style="width: 98%;">
-                
-              </li>
-              <span class="chart__label">
-                CSS3 & SCSS
-              </span>
-              <li class="chart__bar" style="width: 98%;">
-                
-              </li>
-              <span class="chart__label">
-                JavaScript
-              </span>
-              <li class="chart__bar" style="width: 70%;">
-                
-              </li>
-              <span class="chart__label">
-                AngularJS
-              </span>
-              <li class="chart__bar" style="width: 40%;">
-                
-              </li>
+    <div class="container">
+        <div style="display:block;" class="label--wrapper"></div>
+        <div class="wrapper">
+                <div id="chart" class="chart">
+                        <!-- <span class="chart__title">Development</span> -->
+                        
+                        <ul style="width:100%;" class="chart--horiz">
+                                <li style="
+                                border-left: 2px solid gray;
+                                z-index: 9000000;
+                                height: 4598px;
+                                left: 33%;
+                                position: absolute;
+                            "></li>
+                        </ul>
+                    
+            <ul class="lines">
+            <li class="line l--33">
+                <span class="line__label">
+                750
+                </span>
+            </li>
+            <li class="line l--66">
+                <span class="line__label">
+                1500
+                </span>
+            </li>
+            <li class="line l--99">
+                <span class="line__label">
+                2250
+                </span>
+            </li>
             </ul>
-          </div>
-          
-          
+        </div><!--/.chart--> 
+
+                    
+           
         </div>
-      </div>
+    </div>
+
+      <script src="data.js" type="text/javascript"></script>
+
+      <script>
+      $(document).ready(function(){
+        for (i in DATA){
+            var ele = DATA[i];
+            console.log(ele.lea)
+            if (ele.dist_750 < 0){
+                console.log("students per nurse: " + ele.students_per_nurse)
+                var width = (ele.students_per_nurse/2250)*100;
+                console.log("width: " + width)
+                var marg_left = 33 - width;
+                console.log("marg left: " + marg_left)
+            } else {
+                console.log("students per nurse: " + ele.students_per_nurse)
+                var width = (ele.students_per_nurse/2250)*100;
+                console.log("width: " + width)
+                var marg_left = 33;
+                console.log("marg left: " + marg_left)
+            }
+
+            $('.label--wrapper').append('<span class="chart__label">' + ele.lea + '</span>')
+            
+            $('.chart--horiz').append('<div class="chart__bar-wrapper"><li class="chart__bar" style="width:' + width + '%;margin-left:' + marg_left + '%;list-style-type:none;"></li></div>')
+        }
+      })
+      </script>
       
 </body>
 </html>

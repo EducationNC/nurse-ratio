@@ -106,7 +106,7 @@ h1{
 .chart__bar {
     height: 30px;
     margin-bottom: 5px;
-    background: #3cd3ad;
+    background: #b2abd2;
     opacity: 0;
     animation: 1s anim-lightspeed-in ease forwards;
 }
